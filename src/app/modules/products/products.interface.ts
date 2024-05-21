@@ -1,4 +1,4 @@
-import { Schema, model , connect } from "mongoose";
+
 
 // interface
 export type Product = {

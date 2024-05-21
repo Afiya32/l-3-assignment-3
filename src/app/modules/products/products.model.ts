@@ -1,9 +1,9 @@
-import { Schema ,model ,connect } from "mongoose";
+import { Schema ,model  } from "mongoose";
 import { Product } from "./products.interface";
 
 
 
-// schema
+// product schema
 const productSchema = new Schema<Product>({
     id:{type:String,},
     name:{type:String, required:true},
@@ -25,7 +25,7 @@ const productSchema = new Schema<Product>({
 })
 
 
-// model
+//product model
 const ProductModel = model<Product>('Product', productSchema);
 
 export default ProductModel;
