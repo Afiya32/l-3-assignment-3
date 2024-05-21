@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productServices = void 0;
 const products_model_1 = __importDefault(require("./products.model"));
+// post product 
 const createProductDB = (product) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield products_model_1.default.create(product);
@@ -23,11 +24,63 @@ const createProductDB = (product) => __awaiter(void 0, void 0, void 0, function*
         console.log(err);
     }
 });
-// get all service
-// search service
-// get single service
-// update service
-// delete service
+// get all products 
+const getAllProductsDB = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const products = yield products_model_1.default.find({});
+        return products;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+// search products 
+const searchProductsDB = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const products = yield products_model_1.default.find({
+            $or: [
+                { name: { $regex: new RegExp(searchTerm, "i") } },
+                { category: { $regex: new RegExp(searchTerm, "i") } },
+                { price: { $regex: new RegExp(searchTerm, "i") } },
+            ],
+        });
+        return products;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+// get single product 
+const getProductByIdDB = (productId) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const product = yield products_model_1.default.findById(productId);
+        return product;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+// update product 
+const updateProductByIdDB = (productId, productData) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const updatedProduct = yield products_model_1.default.findByIdAndUpdate(productId, productData, { new: true });
+        return updatedProduct;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+// delete product 
+const deleteProductByIdDB = (productId) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const deletedProduct = yield products_model_1.default.findByIdAndDelete(productId);
+        return deletedProduct;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
 exports.productServices = {
-    createProductDB,
+    createProductDB, getAllProductsDB, getProductByIdDB,
+    updateProductByIdDB, deleteProductByIdDB, searchProductsDB
 };

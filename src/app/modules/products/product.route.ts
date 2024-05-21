@@ -3,12 +3,17 @@ import { productController } from "./product.controller";
 
 
 const router=express.Router()
-// post route
+// post product 
 router.post('/',productController.createProduct)
-// get all route
-// get all route search 
-// get single route
-// update route
-// delete route
+// get all products 
+router.get('/', productController.getAllProducts);
+// get all products  search 
+router.get('/', productController.searchProducts);
+// get single product 
+router.get('/:productId', productController.getProductById);
+// update product 
+router.put('/:productId', productController.updateProductById);
+// delete product 
+router.delete('/:productId', productController.deleteProductById);
 
 export const productRoutes = router;
