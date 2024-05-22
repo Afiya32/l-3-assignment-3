@@ -1,4 +1,4 @@
-Assignment-2
+                                                                 Assignment-2
 Overview
 This project is a Node.js application that provides an API for managing a product inventory. The backend is built with Express and TypeScript, using MongoDB for data storage. The application is deployed on Vercel.
 
@@ -23,7 +23,7 @@ To run this project locally, follow these steps:
 Clone the repository:
 
 
-git clone https://github.com/your-username/assignment-2.git
+git clone (https://github.com/Afiya32/l-3-assignment-3.git)
 cd assignment-2
 Install dependencies:
 
