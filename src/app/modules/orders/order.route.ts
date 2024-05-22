@@ -9,7 +9,7 @@ router.post('/', orderController.createOrder);
 router.get('/', orderController.getAllOrders);
 
 // Get orders by email
-router.get('/', orderController.getOrdersByEmail);
+router.get('/email', orderController.getOrdersByEmail);
 
 
 

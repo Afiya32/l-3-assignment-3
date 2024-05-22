@@ -15,28 +15,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.orderService = void 0;
 const orders_model_1 = __importDefault(require("./orders.model"));
 const products_model_1 = __importDefault(require("../products/products.model"));
-// post orders
+// Create order service
 const createOrderDB = (order) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // Check 
+        // Check inventory
         const product = yield products_model_1.default.findById(order.productId);
         if (!product || product.inventory.quantity < order.quantity) {
-            throw new Error('Insufficient quantity available in inventory');
+            return { error: "Insufficient quantity available in inventory" };
         }
-        // Reduce 
+        // Reduce inventory
         product.inventory.quantity -= order.quantity;
         product.inventory.inStock = product.inventory.quantity > 0;
         yield product.save();
-        // Create the order
+        // Create order
         const result = yield orders_model_1.default.create(order);
         return result;
     }
     catch (err) {
         console.log(err);
-        throw new Error('An error occurred while creating the order');
+        return { error: "An error occurred while creating the order" };
     }
 });
-// get orders
+// Get all orders service
 const getAllOrdersDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const orders = yield orders_model_1.default.find({});
@@ -44,10 +44,10 @@ const getAllOrdersDB = () => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (err) {
         console.log(err);
-        return { error: 'An error occurred while fetching orders' };
+        return { error: "An error occurred while fetching orders" };
     }
 });
-// get single order
+// Get orders by email service
 const getOrdersByEmailDB = (email) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const orders = yield orders_model_1.default.find({ email });
@@ -55,8 +55,11 @@ const getOrdersByEmailDB = (email) => __awaiter(void 0, void 0, void 0, function
     }
     catch (err) {
         console.log(err);
-        return { error: 'An error occurred while fetching orders for the user' };
+        return { error: "An error occurred while fetching orders for the user" };
     }
 });
-exports.orderService = { createOrderDB, getAllOrdersDB, getOrdersByEmailDB
+exports.orderService = {
+    createOrderDB,
+    getAllOrdersDB,
+    getOrdersByEmailDB,
 };

@@ -1,54 +1,54 @@
 import { Orders } from "./orders.interface";
 import OrdersModel from "./orders.model";
-import ProductModel from '../products/products.model';
+import ProductModel from "../products/products.model";
 
-// post orders
-const createOrderDB = async (order : Orders) =>{
-    try {
-        // Check 
-        const product = await ProductModel.findById(order.productId);
-        if (!product || product.inventory.quantity < order.quantity) {
-            throw new Error('Insufficient quantity available in inventory');
-        }
-
-        // Reduce 
-        product.inventory.quantity -= order.quantity;
-        product.inventory.inStock = product.inventory.quantity > 0;
-        await product.save();
-
-        // Create the order
-        const result = await OrdersModel.create(order);
-        return result;
-    } catch (err) {
-        console.log(err);
-        throw new Error('An error occurred while creating the order');
+// Create order service
+const createOrderDB = async (order: Orders) => {
+  try {
+    // Check inventory
+    const product = await ProductModel.findById(order.productId);
+    if (!product || product.inventory.quantity < order.quantity) {
+      return { error: "Insufficient quantity available in inventory" };
     }
 
-}
+    // Reduce inventory
+    product.inventory.quantity -= order.quantity;
+    product.inventory.inStock = product.inventory.quantity > 0;
+    await product.save();
 
-// get orders
+    // Create order
+    const result = await OrdersModel.create(order);
+    return result;
+  } catch (err) {
+    console.log(err);
+    return { error: "An error occurred while creating the order" };
+  }
+};
+
+// Get all orders service
 const getAllOrdersDB = async () => {
-    try {
-      const orders = await OrdersModel.find({});
-      return orders;
-    } catch (err) {
-      console.log(err);
-      return { error: 'An error occurred while fetching orders' };
-    }
-  };
+  try {
+    const orders = await OrdersModel.find({});
+    return orders;
+  } catch (err) {
+    console.log(err);
+    return { error: "An error occurred while fetching orders" };
+  }
+};
 
-// get single order
+// Get orders by email service
 const getOrdersByEmailDB = async (email: string) => {
-    try {
-      const orders = await OrdersModel.find({ email });
-      return orders;
-    } catch (err) {
-      console.log(err);
-      return { error: 'An error occurred while fetching orders for the user' };
-    }
-  };
-  
+  try {
+    const orders = await OrdersModel.find({ email });
+    return orders;
+  } catch (err) {
+    console.log(err);
+    return { error: "An error occurred while fetching orders for the user" };
+  }
+};
 
-export const orderService={ createOrderDB,getAllOrdersDB,getOrdersByEmailDB
-    
-}
+export const orderService = {
+  createOrderDB,
+  getAllOrdersDB,
+  getOrdersByEmailDB,
+};
