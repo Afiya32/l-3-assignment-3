@@ -1,0 +1,83 @@
+[debug] [2024-05-22T06:01:19.347Z] ----------------------------------------------------------------------
+[debug] [2024-05-22T06:01:19.354Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-05-22T06:01:19.355Z] CLI Version:   13.1.0
+[debug] [2024-05-22T06:01:19.356Z] Platform:      win32
+[debug] [2024-05-22T06:01:19.356Z] Node Version:  v18.18.0
+[debug] [2024-05-22T06:01:19.358Z] Time:          Wed May 22 2024 12:01:19 GMT+0600 (Bangladesh Standard Time)
+[debug] [2024-05-22T06:01:19.359Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-22T06:01:19.388Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-22T06:01:19.389Z] > authorizing via signed-in user (biplobguru123@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\programming hero level-2\Milestone-2\Assignment-2
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-05-22T06:05:41.983Z] > refreshing access token with scopes: []
+[debug] [2024-05-22T06:05:41.988Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-05-22T06:05:41.988Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-22T06:05:42.571Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-05-22T06:05:42.572Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-22T06:05:42.633Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-05-22T06:05:42.634Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"biplob-32","name":"biplob-32"}
+[debug] [2024-05-22T06:05:45.219Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2024-05-22T06:05:45.219Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.5298642700001283667"}
+[debug] [2024-05-22T06:05:45.224Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5298642700001283667 [none]
+[debug] [2024-05-22T06:05:47.137Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5298642700001283667 200
+[debug] [2024-05-22T06:05:47.137Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5298642700001283667 {"name":"operations/cp.5298642700001283667"}
+[debug] [2024-05-22T06:05:47.654Z] [Project Creation Poller] Retrying task index 0
+[debug] [2024-05-22T06:05:47.657Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5298642700001283667 [none]
+[debug] [2024-05-22T06:05:49.698Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5298642700001283667 200
+[debug] [2024-05-22T06:05:49.699Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5298642700001283667 {"name":"operations/cp.5298642700001283667","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"586896985493","projectId":"biplob-32","lifecycleState":"ACTIVE","name":"biplob-32","createTime":"2024-05-22T06:05:47.607313Z"}}
+[debug] [2024-05-22T06:05:49.706Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/biplob-32:addFirebase [none]
+[debug] [2024-05-22T06:05:53.541Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/biplob-32:addFirebase 200
+[debug] [2024-05-22T06:05:53.541Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/biplob-32:addFirebase {"name":"operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm"}
+[debug] [2024-05-22T06:05:53.542Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm [none]
+[debug] [2024-05-22T06:05:55.777Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm 200
+[debug] [2024-05-22T06:05:55.777Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm {"name":"operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm"}
+[debug] [2024-05-22T06:05:56.292Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-05-22T06:05:56.294Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm [none]
+[debug] [2024-05-22T06:05:57.697Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm 200
+[debug] [2024-05-22T06:05:57.698Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm {"name":"operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm"}
+[debug] [2024-05-22T06:05:58.706Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-05-22T06:05:58.707Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm [none]
+[debug] [2024-05-22T06:06:00.140Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm 200
+[debug] [2024-05-22T06:06:00.141Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm {"name":"operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm"}
+[debug] [2024-05-22T06:06:02.154Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-05-22T06:06:02.155Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm [none]
+[debug] [2024-05-22T06:06:03.460Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm 200
+[debug] [2024-05-22T06:06:03.461Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm {"name":"operations/workflows/MjU1YmNmYmMtOWY0Mi00YjhlLTg0NzctZjFjM2I2NDQ4MTZm","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"biplob-32","projectNumber":"586896985493","displayName":"biplob-32","name":"projects/biplob-32","resources":{"hostingSite":"biplob-32"}}}
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: biplob-32
+[info]    - Project Name: biplob-32
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/biplob-32/overview
+[info] i  Using project biplob-32 (biplob-32) 
+[info] 
+=== Hosting Setup
+[debug] [2024-05-22T06:06:03.494Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/biplob-32 [none]
+[debug] [2024-05-22T06:06:05.056Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/biplob-32 200
+[debug] [2024-05-22T06:06:05.056Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/biplob-32 {"projectId":"biplob-32","projectNumber":"586896985493","displayName":"biplob-32","name":"projects/biplob-32","resources":{"hostingSite":"biplob-32"},"state":"ACTIVE","etag":"1_296bafb9-0fe5-4d6f-a409-4878a39391fa"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
