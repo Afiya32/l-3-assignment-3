@@ -15,15 +15,20 @@ app.use((0, cors_1.default)());
 app.use("/api/products", product_route_1.productRoutes);
 // Mount order routes
 app.use("/api/orders", order_route_1.orderRoutes);
-// Handle undefined routes
-// app.use((req, res, next) => {
-//   res.status(404).json({
-//     success: false,
-//     message: 'Route not found',
-//   });
-// });
-// Root route
 app.get("/", (req, res) => {
     res.send("E-commerce server is running");
+});
+app.use((req, res) => {
+    res.status(404).json({
+        success: false,
+        message: "Route not found",
+    });
+});
+// General error handling middleware
+app.use((req, res) => {
+    res.status(500).json({
+        success: false,
+        message: "An internal server error occurred",
+    });
 });
 exports.default = app;

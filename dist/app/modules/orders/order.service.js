@@ -18,12 +18,12 @@ const products_model_1 = __importDefault(require("../products/products.model"));
 // Create order service
 const createOrderDB = (order) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // Check inventory
+        // Check 
         const product = yield products_model_1.default.findById(order.productId);
         if (!product || product.inventory.quantity < order.quantity) {
             return { error: "Insufficient quantity available in inventory" };
         }
-        // Reduce inventory
+        // Reduce 
         product.inventory.quantity -= order.quantity;
         product.inventory.inStock = product.inventory.quantity > 0;
         yield product.save();

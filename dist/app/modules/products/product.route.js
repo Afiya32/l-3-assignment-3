@@ -12,7 +12,7 @@ router.post("/", product_controller_1.productController.createProduct);
 // get all products
 router.get("/", product_controller_1.productController.getAllProducts);
 // get all products  search
-router.get("/search", product_controller_1.productController.searchProducts);
+router.get('/', product_controller_1.productController.searchProducts);
 // get single product
 router.get("/:productId", product_controller_1.productController.getProductById);
 // update product

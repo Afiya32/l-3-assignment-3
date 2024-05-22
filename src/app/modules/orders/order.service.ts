@@ -5,13 +5,13 @@ import ProductModel from "../products/products.model";
 // Create order service
 const createOrderDB = async (order: Orders) => {
   try {
-    // Check inventory
+    // Check 
     const product = await ProductModel.findById(order.productId);
     if (!product || product.inventory.quantity < order.quantity) {
       return { error: "Insufficient quantity available in inventory" };
     }
 
-    // Reduce inventory
+    // Reduce 
     product.inventory.quantity -= order.quantity;
     product.inventory.inStock = product.inventory.quantity > 0;
     await product.save();

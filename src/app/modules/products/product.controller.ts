@@ -65,22 +65,28 @@ const getProductById = async (req: Request, res: Response) => {
   };
 // search product
 const searchProducts = async (req: Request, res: Response) => {
-    try {
+  try {
+      // Extract the searchTerm from the query parameters
       const searchTerm = req.query.searchTerm as string;
+
+      // Call the service layer to search for products
       const products = await productServices.searchProductsDB(searchTerm);
+
+      // Return the response
       res.status(200).json({
-        success: true,
-        message: `Products matching search term '${searchTerm}' fetched successfully!`,
-        data: products,
+          success: true,
+          message: `Products matching search term '${searchTerm}' fetched successfully!`,
+          data: products,
       });
-    } catch (err) {
-      console.log(err);
+  } catch (err) {
+      // Handle errors
+      console.error(err);
       res.status(500).json({
-        success: false,
-        message: "An error occurred while searching for products.",
+          success: false,
+          message: 'An error occurred while searching for products.',
       });
-    }
-  };
+  }
+};
 // update product
 const updateProductById = async (req: Request, res: Response) => {
     try {

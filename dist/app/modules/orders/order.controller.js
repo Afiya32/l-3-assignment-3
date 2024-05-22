@@ -11,15 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.orderController = void 0;
 const order_service_1 = require("./order.service");
-// Post order controller
+// post order
 const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const order = req.body;
         const result = yield order_service_1.orderService.createOrderDB(order);
-        if (result.error) {
-            return res.status(400).json({ success: false, message: result.error });
-        }
-        res.status(200).json({
+        res.status(201).json({
             success: true,
             message: 'Order created successfully!',
             data: result,
@@ -33,7 +30,7 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         });
     }
 });
-// Get all orders controller
+// get order
 const getAllOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const orders = yield order_service_1.orderService.getAllOrdersDB();
@@ -51,7 +48,7 @@ const getAllOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         });
     }
 });
-// Get orders by email controller
+// get single order
 const getOrdersByEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const email = req.query.email;
@@ -70,8 +67,7 @@ const getOrdersByEmail = (req, res) => __awaiter(void 0, void 0, void 0, functio
         });
     }
 });
-exports.orderController = {
-    createOrder,
+exports.orderController = { createOrder,
     getAllOrders,
     getOrdersByEmail,
 };

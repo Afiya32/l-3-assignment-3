@@ -37,11 +37,15 @@ const getAllProductsDB = () => __awaiter(void 0, void 0, void 0, function* () {
 // search products 
 const searchProductsDB = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // Convert searchTerm to lowercase for case-insensitive matching
+        searchTerm = searchTerm.toLowerCase();
+        // Match searchTerm against name, category, and price
         const products = yield products_model_1.default.find({
             $or: [
                 { name: { $regex: new RegExp(searchTerm, "i") } },
                 { category: { $regex: new RegExp(searchTerm, "i") } },
-                { price: { $regex: new RegExp(searchTerm, "i") } },
+                // Match numerical values directly instead of using regex
+                { price: parseFloat(searchTerm) || 0 }, // Convert searchTerm to number
             ],
         });
         return products;

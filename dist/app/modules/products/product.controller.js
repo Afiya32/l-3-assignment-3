@@ -78,8 +78,11 @@ const getProductById = (req, res) => __awaiter(void 0, void 0, void 0, function*
 // search product
 const searchProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // Extract the searchTerm from the query parameters
         const searchTerm = req.query.searchTerm;
+        // Call the service layer to search for products
         const products = yield product_service_1.productServices.searchProductsDB(searchTerm);
+        // Return the response
         res.status(200).json({
             success: true,
             message: `Products matching search term '${searchTerm}' fetched successfully!`,
@@ -87,10 +90,11 @@ const searchProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
         });
     }
     catch (err) {
-        console.log(err);
+        // Handle errors
+        console.error(err);
         res.status(500).json({
             success: false,
-            message: "An error occurred while searching for products.",
+            message: 'An error occurred while searching for products.',
         });
     }
 });
